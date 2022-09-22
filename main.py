@@ -11,6 +11,12 @@ print(corrMatrix)
 import plotly.express as px
 fig = px.imshow(corrMatrix)
 
+# A pairplot or scatterplot matrix is effective at exploratory data analysis.
+# Identify relationships between variables all at once.
+
+Pair_Plot = px.scatter_matrix(Titanic)
+Pair_Plot.show()
+
 # Evaluating kurtosis:
 # 1. Mesokurtic: Data follows a normal distribution
 # 2. Leptokurtic: Heavy tails on either side, indicating large outliers. Looks like Top-Thrill Dragster.
