@@ -3,13 +3,31 @@
 # I like this version of the correlation matrix because it is interactive.
 
 import pandas
-Titanic = pandas.read_csv("titanic.csv")
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+Titanic = pandas.read_csv("C:/Users/csavage/OneDrive - Alvarez and Marsal/Documents/titanic.csv")
 
 corrMatrix = Titanic.corr()
 print(corrMatrix)
 
+# Correlation Matrix Version 1
+
 import plotly.express as px
 fig = px.imshow(corrMatrix)
+
+## Correlation Matrix Version 2
+
+Corr_Heat = sns.heatmap(corrMatrix,
+                 cbar=True,
+                 annot=True,
+                 square=True,
+                 fmt='.2f',
+                 annot_kws={'size': 10},
+                 yticklabels=corrMatrix.columns,
+                 xticklabels=corrMatrix.columns,
+                 cmap="Spectral_r")
+plt.show()
 
 # A pairplot or scatterplot matrix is effective at exploratory data analysis.
 # Identify relationships between variables all at once.
